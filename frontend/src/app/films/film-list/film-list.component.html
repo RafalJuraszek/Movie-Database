@@ -1,0 +1,16 @@
+
+<div *ngIf="show; else spinner"  class="row">
+  <div  class="col-lg-12">
+
+    <app-film-item
+      *ngFor="let i of films" [film]="i">
+
+    </app-film-item>
+  </div>
+</div>
+<ng-template #spinner>
+  <mat-spinner diameter="150" class="center-block" style="margin-top: 100px;"
+               color="warn"></mat-spinner>
+</ng-template>
+
+

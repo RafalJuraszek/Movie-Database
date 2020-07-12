@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-lg-12">
+    <img style="max-height: 300px;"
+         [src]="film.imageUrl" alt="{{film.title}}" class="img-responsive">
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <h1>{{film.title}}</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-10">
+    <p style="font-size: 17px;">{{film.description}}</p>
+  </div>
+</div>
+
+<div *ngIf="show; else spinner" class="book-rating" data-jest="stars">
+
+  <span *ngFor="let fullStar of fullStars" class="fa fa-star checked" data-jest="full star"></span>
+
+  <span *ngIf="hasAnHalfStar" class="fa fa-star-half-empty" data-jest="half star"></span>
+
+  <span *ngFor="let emptyStar of emptyStars" class="fa fa-star-o" data-jest="empty star"></span>
+
+</div>
+<ng-template #spinner>
+  <mat-spinner diameter="100"
+               color="warn"></mat-spinner>
+</ng-template>
+
+<div class="row" style="margin-top: 10px;">
+  <div class="col-lg-12">
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Ratings
+        </mat-panel-title>
+        <mat-panel-description>
+          {{ratings.length}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p *ngFor="let rating of ratings">{{rating.description}}</p>
+    </mat-expansion-panel>
+  </div>
+</div>
+
