@@ -17,11 +17,17 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { AddRatingComponent } from './add-rating/add-rating.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {RatingModule} from 'ng-starrating';
 
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent },
-  {path: 'films', component: FilmsComponent}
+  {path: 'films', component: FilmsComponent},
+  {path: 'addRating', component: AddRatingComponent}
 ];
 
 @NgModule({
@@ -31,7 +37,8 @@ const appRoutes: Routes = [
     FilmListComponent,
     FilmDetailComponent,
     FilmItemComponent,
-    HomeComponent
+    HomeComponent,
+    AddRatingComponent
 
   ],
   imports: [
@@ -43,7 +50,12 @@ const appRoutes: Routes = [
     MatIconModule,
     MatButtonModule,
     MatProgressSpinnerModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    ReactiveFormsModule,
+    RatingModule
   ],
   providers: [FilmService ,     {
     provide: HTTP_INTERCEPTORS,

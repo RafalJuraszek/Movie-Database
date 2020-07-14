@@ -30,3 +30,35 @@ insert into rating(film_id, stars, description)
 VALUES (5, 1, 'Bad film !!!');
 insert into rating(film_id, stars, description)
 VALUES (5, 1, 'Good film but the ending predictive !!!');
+
+
+insert into rating(film_id, stars, description)
+VALUES (5, 3, 'Bad film !!!');
+insert into rating(film_id, stars, description)
+VALUES (5, 4, 'Good film but the ending predictive !!!');
+
+insert into rating(film_id, stars, description)
+VALUES (5, 5, 'Bad film !!!');
+insert into rating(film_id, stars, description)
+VALUES (5, 5, 'Good film but the ending predictive !!!');
+
+
+
+insert into rating(film_id, stars, description)
+VALUES (5, 5, 'Bad film !!!');
+insert into rating(film_id, stars, description)
+VALUES (5, 5, 'Good film but the ending predictive !!!');
+
+
+
+insert into rating(film_id, stars, description)
+VALUES (5, 5, 'Bad film !!!');
+insert into rating(film_id, stars, description)
+VALUES (5, 5, 'Good film but the ending predictive !!!');
+
+
+
+insert into rating(film_id, stars, description)
+VALUES (5, 5, 'Bad film !!!');
+insert into rating(film_id, stars, description)
+VALUES (5, 5, 'Good film but the ending predictive !!!');

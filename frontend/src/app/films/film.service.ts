@@ -23,4 +23,8 @@ export class FilmService {
     const params = new HttpParams().set('id', filmId);
     return this.httpService.get<Array<RatingModel>>(this.BASIC_RATING_URL + 'ratings', {params});
   }
+
+  addRating(rating) {
+    return this.httpService.post<RatingModel>(this.BASIC_RATING_URL + 'ratings', rating);
+  }
 }

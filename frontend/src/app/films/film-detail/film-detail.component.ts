@@ -1,6 +1,7 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {FilmModel} from '../film.model';
 import {FilmService} from '../film.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-film-detail',
@@ -16,7 +17,7 @@ export class FilmDetailComponent implements OnInit, OnChanges {
   show = false;
   ratings;
 
-  constructor(private filmService: FilmService) {
+  constructor(private filmService: FilmService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -77,6 +78,10 @@ export class FilmDetailComponent implements OnInit, OnChanges {
 
     return this.rating % 1 !== 0;
 
+  }
+
+  addRating() {
+    this.router.navigateByUrl('/addRating', {state: {film : this.film}});
   }
 
 

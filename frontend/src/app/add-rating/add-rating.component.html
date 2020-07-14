@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-lg-6 col-lg-offset-3">
+    <img style="max-height: 300px; display: block; margin: auto;"
+         [src]="film.imageUrl" alt="{{film.title}}" class="img-responsive">
+    <form id="search-form" [formGroup]="addRatingForm" style="font-size: 20px;">
+
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label> Description
+        </mat-label>
+        <input matInput formControlName="description" required>
+        <mat-error *ngIf="addRatingForm.controls.description.touched && addRatingForm.controls.description.invalid">
+          <span *ngIf="addRatingForm.controls.description.errors.required">This field is mandatory.</span>
+          <span *ngIf="addRatingForm.controls.description.errors.pattern">This field is invalid.</span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label> Stars
+        </mat-label>
+        <input matInput formControlName="stars" type="number" min="0" max="5" required>
+        <mat-error *ngIf="addRatingForm.controls.stars.touched && addRatingForm.controls.stars.invalid">
+          <span *ngIf="addRatingForm.controls.stars.errors.required">This field is mandatory.</span>
+          <span *ngIf="addRatingForm.controls.stars.errors.pattern">This field is invalid.</span>
+        </mat-error>
+      </mat-form-field>
+
+
+
+
+
+
+      <button (click)="addRating()" class="btn btn-success btn-lg center-block" >Add Rating</button>
+
+    </form>
+  </div>
+</div>
+

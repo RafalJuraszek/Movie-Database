@@ -1,10 +1,12 @@
 package com.rating.rating.rating;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.security.Principal;
 import java.util.List;
 
 @Service
@@ -25,6 +27,7 @@ public class RatingService {
 
     @Transactional(propagation = Propagation.REQUIRED)
     public Rating createRating(Rating rating) {
+
         Rating newRating = new Rating();
         newRating.setFilmId(rating.getFilmId());
         newRating.setStars(rating.getStars());
