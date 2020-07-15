@@ -36,13 +36,14 @@ export class FilmDetailComponent implements OnInit, OnChanges {
         return;
       }
 
+
       for (let i = 0; i < result.length; i++) {
         stars += result[i].stars;
       }
       this.rating = stars / result.length;
 
     });
-    console.log('elo');
+
   }
 
 

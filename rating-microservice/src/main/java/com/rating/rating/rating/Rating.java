@@ -17,5 +17,7 @@ public class Rating {
     private Long filmId;
     private int stars;
     private String description;
+    private String author;
+    private String image;
 
 }

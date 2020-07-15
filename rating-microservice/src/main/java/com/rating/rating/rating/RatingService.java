@@ -32,6 +32,8 @@ public class RatingService {
         newRating.setFilmId(rating.getFilmId());
         newRating.setStars(rating.getStars());
         newRating.setDescription(rating.getDescription());
+        newRating.setImage(rating.getImage());
+        newRating.setAuthor(rating.getAuthor());
         Rating persisted = ratingRepository.save(newRating);
         return persisted;
     }

@@ -3,6 +3,7 @@ package com.rating.rating.rating;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
@@ -23,8 +24,10 @@ public class RatingController {
     }
 
     @PostMapping
-    public Rating createRating(@RequestBody Rating rating, @AuthenticationPrincipal Principal userInfo) {
-        System.out.println(userInfo.getName());
+    public Rating createRating(@RequestBody Rating rating, @AuthenticationPrincipal Jwt principal) {
+        System.out.println(principal.getClaims());
+        rating.setAuthor((String) principal.getClaims().get("given_name"));
+        rating.setImage((String) principal.getClaims().get("picture"));
         return ratingService.createRating(rating);
     }
 }
