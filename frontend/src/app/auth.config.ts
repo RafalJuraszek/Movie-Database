@@ -8,7 +8,7 @@ export const authCodeFlowConfig: AuthConfig = {
   redirectUri: window.location.origin,
   clientId: '937719656412-9mg264ra4kgckfh2562rf0kbn1m038ls.apps.googleusercontent.com',
 
-  dummyClientSecret: 'L2ryYn8hFUwaymVa3a6mt8SG',
+  dummyClientSecret: '3M8vJ6p0wli-60VRt48QCLom',
   responseType: 'code',
   strictDiscoveryDocumentValidation: false,
   scope: 'openid profile email',
