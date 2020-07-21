@@ -7,8 +7,8 @@ import {RatingModel} from './rating.model';
 })
 export class FilmService {
 
-  BASIC_FILM_URL: string = 'http://localhost:4200/film-service/';
-  BASIC_RATING_URL: string = 'http://localhost:4200/rating-service/';
+  BASIC_FILM_URL: string = 'http://localhost:4200/api/film-service/';
+  BASIC_RATING_URL: string = 'http://localhost:4200/api/rating-service/';
   filmSelected = new EventEmitter();
   showHeader = new EventEmitter();
 

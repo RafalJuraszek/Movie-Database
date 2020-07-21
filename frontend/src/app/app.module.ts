@@ -18,16 +18,34 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { AddRatingComponent } from './add-rating/add-rating.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {RatingModule} from 'ng-starrating';
+import { HeaderComponent } from './common/header/header.component';
+import {
+  NzAffixModule, NzAvatarModule, NzButtonModule, NzCommentModule,
+  NzFormModule,
+  NzGridModule,
+  NzIconModule,
+  NzInputModule,
+  NzLayoutModule, NzListModule,
+  NzMenuModule, NzRateModule,
+  NzRowDirective, NzTypographyModule
+} from 'ng-zorro-antd';
+import {AuthService} from './auth.service';
+import {AuthGuard} from './app.guard';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { FilmViewComponent } from './films/film-view/film-view.component';
+
 
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent },
-  {path: 'films', component: FilmsComponent},
-  {path: 'addRating', component: AddRatingComponent}
+  {path: 'signup', component: SignupComponent},
+  {path: 'films', canActivate: [AuthGuard], component: FilmsComponent},
+  {path: 'addRating', canActivate: [AuthGuard], component: FilmViewComponent}
 ];
 
 @NgModule({
@@ -38,10 +56,15 @@ const appRoutes: Routes = [
     FilmDetailComponent,
     FilmItemComponent,
     HomeComponent,
-    AddRatingComponent
+    AddRatingComponent,
+    HeaderComponent,
+    LoginComponent,
+    SignupComponent,
+    FilmViewComponent
 
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
@@ -55,13 +78,26 @@ const appRoutes: Routes = [
     MatInputModule,
     MatButtonModule,
     ReactiveFormsModule,
-    RatingModule
+    RatingModule,
+    NzGridModule,
+    NzInputModule,
+    NzIconModule,
+    NzMenuModule,
+    NzLayoutModule,
+    NzAffixModule,
+    NzFormModule,
+    NzButtonModule,
+    NzRateModule,
+    NzAvatarModule,
+    NzTypographyModule,
+    NzListModule,
+    NzCommentModule
   ],
   providers: [FilmService ,     {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true
-  }],
+  }, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

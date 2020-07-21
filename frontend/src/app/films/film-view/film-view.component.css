@@ -1,0 +1,32 @@
+.film-container {
+  max-width: 1000px;
+  margin: 0 auto 0;
+  border: 1px solid #e1e0e0;
+  background-color: #fff;
+  padding: 40px;
+}
+
+/*.rate-container {*/
+
+
+
+/*}*/
+.rate ::ng-deep .ant-rate-star {
+  font-size: 36px;
+}
+.star {
+  margin-top: 10px;
+  font-size: 45px;
+  color: gold;
+}
+.rate {
+  display: block;
+}
+p {
+  margin-top: 5px;
+  font-size: 18px;
+}
+
+.film-view-row {
+  margin-bottom: 15px;
+}

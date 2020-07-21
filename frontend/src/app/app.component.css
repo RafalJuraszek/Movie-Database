@@ -1,29 +1,42 @@
-#logo-main {
-  display: block;
-  margin: auto;
-  padding-top: 20px;
-  padding-bottom: 5px;
+/*#logo-main {*/
+/*  display: block;*/
+/*  margin: auto;*/
+/*  padding-top: 20px;*/
+/*  padding-bottom: 5px;*/
 
+/*}*/
+
+
+
+/*.navbar-nav {*/
+/*  width: 100%;*/
+/*  text-align: center;*/
+/*}*/
+/*li {*/
+/*  display: inline-block;*/
+/*  float: none;*/
+/*  font-size: 18px;}*/
+
+/*a {*/
+/*  padding-left: 30px;*/
+/*  padding-right: 30px;*/
+/*}*/
+
+/*#navbar-primary.navbar-default {*/
+/*  background: transparent;*/
+/*  border: none;*/
+
+/*}*/
+
+.ant-layout-header {
+  height: 79px;
+  line-height: 77px;
+  background-color: #fff;
+  border-bottom: 1px solid #e8e8e8;
+  padding: 0;
+}
+.app-content {
+  background-color: #fafafa;
+  padding-top: 30px;
 }
 
-
-
-.navbar-nav {
-  width: 100%;
-  text-align: center;
-}
-li {
-  display: inline-block;
-  float: none;
-  font-size: 18px;}
-
-a {
-  padding-left: 30px;
-  padding-right: 30px;
-}
-
-#navbar-primary.navbar-default {
-  background: transparent;
-  border: none;
-
-}

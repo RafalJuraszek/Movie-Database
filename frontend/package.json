@@ -25,6 +25,7 @@
     "bootstrap": "^3.4.1",
     "font-awesome": "^4.7.0",
     "ng-starrating": "^1.0.20",
+    "ng-zorro-antd": "^9.3.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

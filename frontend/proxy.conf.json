@@ -1,9 +1,5 @@
 {
-  "/film-service": {
-    "target": "http://localhost:8080",
-    "secure": false
-  },
-  "/rating-service": {
+  "/api": {
     "target": "http://localhost:8080",
     "secure": false
   }

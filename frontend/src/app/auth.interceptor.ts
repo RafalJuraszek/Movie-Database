@@ -16,11 +16,12 @@ export class AuthInterceptor implements HttpInterceptor {
   private async handleAccess(request: HttpRequest<any>, next: HttpHandler): Promise<HttpEvent<any>> {
 
     const idToken = this.oauthService.getIdToken();
+    const jwtAccessToken = localStorage.getItem('jwt_access_token');
 
-    if ( idToken && (request.url.includes('/film-service') || request.url.includes('/rating-service'))) {
+    if ( (idToken || jwtAccessToken) && (request.url.includes('/film-service') || request.url.includes('/rating-service'))) {
       request = request.clone({
         setHeaders: {
-          Authorization: 'Bearer ' + idToken
+          Authorization: 'Bearer ' + (idToken ? idToken : jwtAccessToken)
         }
       });
     }
