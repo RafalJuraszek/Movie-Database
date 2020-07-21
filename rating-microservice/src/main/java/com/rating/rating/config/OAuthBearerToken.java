@@ -1,4 +1,4 @@
-package com.rating.rating.rating.config;
+package com.rating.rating.config;
 
 import org.springframework.security.oauth2.server.resource.web.BearerTokenResolver;
 

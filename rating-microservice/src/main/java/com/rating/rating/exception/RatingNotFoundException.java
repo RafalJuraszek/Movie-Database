@@ -1,4 +1,4 @@
-package com.rating.rating.rating;
+package com.rating.rating.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

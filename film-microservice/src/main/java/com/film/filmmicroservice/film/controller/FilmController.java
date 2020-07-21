@@ -1,11 +1,12 @@
-package com.film.filmmicroservice.film;
+package com.film.filmmicroservice.film.controller;
 
 
+import com.film.filmmicroservice.film.service.FilmService;
+import com.film.filmmicroservice.film.model.Film;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.*;
 import java.util.List;
 
 @RestController
@@ -21,7 +22,7 @@ public class FilmController {
     }
 
     @GetMapping("/{filmId}")
-    public Film findFilm(@PathVariable Long filmId) {
+    public Film findFilm(@PathVariable String filmId) {
         return filmService.findFilmById(filmId);
     }
 

@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {OAuthService} from 'angular-oauth2-oidc';
-import {authCodeFlowConfig} from './auth.config';
+import {authCodeFlowConfig} from './auth/auth.config';
 import {FilmService} from './films/film.service';
 import {Router} from '@angular/router';
-import {AuthService} from './auth.service';
+import {AuthService} from './auth/auth.service';
 
 @Component({
   selector: 'app-root',

@@ -1,4 +1,4 @@
-package com.rating.rating.rating.config;
+package com.rating.rating.config;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

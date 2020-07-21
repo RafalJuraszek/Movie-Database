@@ -1,4 +1,4 @@
 export class RatingModel {
-  constructor(public id: number, public filmId: string, public stars: number, public description: string ) {
+  constructor(public id: string, public filmId: string, public stars: number, public description: string ) {
   }
 }

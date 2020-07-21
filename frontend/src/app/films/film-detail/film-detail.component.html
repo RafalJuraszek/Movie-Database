@@ -40,13 +40,9 @@
   </div>
 </div>
 
-<div *ngIf="show; else spinner" class="book-rating" data-jest="stars">
+<div *ngIf="show; else spinner" class="book-rating">
 
-  <span *ngFor="let fullStar of fullStars" class="fa fa-star checked" data-jest="full star"></span>
-
-  <span *ngIf="hasAnHalfStar" class="fa fa-star-half-empty" data-jest="half star"></span>
-
-  <span *ngFor="let emptyStar of emptyStars" class="fa fa-star-o" data-jest="empty star"></span>
+  <nz-rate class="rate" nzAllowHalf="true" [ngModel]="rating" nzDisabled></nz-rate>
 
 </div>
 <ng-template #spinner>
@@ -54,5 +50,5 @@
                color="warn"></mat-spinner>
 </ng-template>
 
-<button class="btn btn-success btn-lg"  (click)="addRating()" style="margin-top: 10px;">Check</button>
+<button class="btn btn-success btn-lg" (click)="checkFilm()" style="margin-top: 10px;">Check</button>
 

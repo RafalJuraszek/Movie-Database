@@ -3,7 +3,7 @@ import {OAuthService} from 'angular-oauth2-oidc';
 import {FilmService} from '../films/film.service';
 import {MatIconRegistry} from '@angular/material/icon';
 import {DomSanitizer} from '@angular/platform-browser';
-import {AuthService} from '../auth.service';
+import {AuthService} from '../auth/auth.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({

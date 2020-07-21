@@ -11,7 +11,7 @@
           </div>
 
           <i nz-icon nzType="star" class="star" nzTheme="fill"></i>
-          <span style="margin-left: 5px; font-size:40px;" nz-typography><strong>4.5</strong></span>
+          <span style="margin-left: 5px; font-size:40px;" nz-typography><strong>{{rate}}</strong></span>
         </div>
 
       </div>
@@ -25,13 +25,20 @@
         <div nz-col nzSpan="16">
           <span nz-typography><code>#169 Film</code></span>
           <p>{{film.description}}</p>
+
+          <nz-descriptions [nzColumn]="1">
+            <nz-descriptions-item nzTitle="Direction">James Komasa</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="Type">Comedy</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="Production">Polska</nz-descriptions-item>
+
+          </nz-descriptions>
         </div>
       </div>
 
     </div>
 
 
-    <div nz-col nzSpan="8" nzPush="1" class="rate-container">
+    <div nz-col nzSpan="8" nzPush="2" class="rate-container">
       <nz-avatar [nzSize]="64" nzIcon="user"
                  nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
       <span
@@ -39,9 +46,27 @@
       >
      {{ value ? tooltips[value - 1] : 'I saw, my rating' }}
       </span>
-      <i style="min-width: 24px!important; font-size: 24px!important; margin-left: 10px;" nz-icon nzType="heart"
-         nzTheme="outline"></i>
       <nz-rate class="rate" [(ngModel)]="value"></nz-rate>
+
+      <nz-comment *ngIf="value && show" style="width: 70%;">
+        <nz-comment-content>
+
+          <form (ngSubmit)="onSubmit()">
+          <textarea
+            nz-input
+            placeholder="Tell what you think!"
+            style="font-size: 15px;"
+            [(ngModel)]="description"
+            name="rating"
+            [nzAutosize]="{ minRows: 1, maxRows: 6 }"
+          ></textarea>
+            <button  nz-button style="margin-top: 10px;" [nzType]="'primary'">Rate
+            </button>
+          </form>
+
+
+        </nz-comment-content>
+      </nz-comment>
 
 
     </div>

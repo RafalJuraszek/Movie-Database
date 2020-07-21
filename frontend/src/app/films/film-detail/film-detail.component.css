@@ -1,7 +1,6 @@
-.fa-star, .fa-star-half-empty, .fa-star-o {
 
-  color: orange;
-
+.rate ::ng-deep .ant-rate-star {
+  font-size: 36px;
 }
 
 
