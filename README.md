@@ -2,6 +2,13 @@
 
 > Database of films using micro-services (not finished - look at the issues)
 
+## Important
+Configuration Server provides needed configuration for the rest of services. You should run it first.
+Additional, you have to set your own path to the `config-repo` folder (in the application.properties, this folder has to be a git repository). In my case:
+```
+spring.cloud.config.server.git.uri=file:///${user.home}/config-repo
+```
+
 ## App
 
 ![Image1](pictures/login.PNG)
