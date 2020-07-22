@@ -1,0 +1,48 @@
+<div class="login-container">
+
+  <div nz-row nzJustify="center">
+    <div nz-col>
+      <div class="logo-container">
+        <span>𝓐𝓵𝓵 𝓪𝓫𝓸𝓾𝓽 𝓜𝓸𝓿𝓲𝓮𝓼!</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div nz-row nzJustify="center">
+
+    <form [formGroup]="validateForm" nz-form class="login-form">
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Please input your username!">
+
+            <input type="text" nzSize="large" nz-input formControlName="userName" placeholder="Username"/>
+
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Please input your Password!">
+
+            <input type="password" nzSize="large" nz-input formControlName="password" placeholder="Password"/>
+
+        </nz-form-control>
+      </nz-form-item>
+
+      <button (click)="onSubmit()" nz-button class="login-form-button login-form-margin" [nzType]="'primary'">Log in
+      </button>
+
+      <button mat-button (click)="login()" style="padding: 1rem; margin-bottom: 10px;"
+              class="login-form-button">
+        <mat-icon style="width: 50px; height:30px"
+                  svgIcon="logo"></mat-icon>
+        Login With Google
+      </button>
+    </form>
+
+  </div>
+
+
+</div>
+
+<div class="signup-link-container">
+  Don't have an account? <a routerLink="signup">Signup</a>
+</div>

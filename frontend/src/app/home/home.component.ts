@@ -3,27 +3,27 @@ import {OAuthService} from 'angular-oauth2-oidc';
 import {FilmService} from '../films/film.service';
 import {MatIconRegistry} from '@angular/material/icon';
 import {DomSanitizer} from '@angular/platform-browser';
-const googleLogoURL =
-  "https://raw.githubusercontent.com/fireflysemantics/logo/master/Google.svg";
+import {AuthService} from '../auth/auth.service';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  isAuthenticated = false;
 
-  constructor(private oAuthService: OAuthService, private filmService: FilmService, private matIconRegistry: MatIconRegistry,
-              private domSanitizer: DomSanitizer) {
-    this.matIconRegistry.addSvgIcon(
-      "logo",
-      this.domSanitizer.bypassSecurityTrustResourceUrl(googleLogoURL));
+
+  constructor(private authService: AuthService) {
+
   }
 
   ngOnInit(): void {
-
+    this.authService.isAuthenticated.subscribe( (isAuthenticated) => {
+      this.isAuthenticated = isAuthenticated;
+    });
   }
 
-  public login() {
-    this.oAuthService.initCodeFlow();
-  }
+
 }

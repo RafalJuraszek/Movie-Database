@@ -9,8 +9,6 @@ import {Router} from '@angular/router';
   styleUrls: ['./film-detail.component.css']
 })
 export class FilmDetailComponent implements OnInit, OnChanges {
-
-  private readonly MAX_NUMBER_OF_STARS = 5;
   @Input() film: FilmModel;
 
   rating;
@@ -27,7 +25,7 @@ export class FilmDetailComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     this.show = false;
-    this.filmService.getRatings(this.film.id).subscribe((result) => {
+    this.filmService.getRatingsByFilmId(this.film.id).subscribe((result) => {
       let stars = 0;
       this.show = true;
       this.ratings = result;
@@ -46,43 +44,8 @@ export class FilmDetailComponent implements OnInit, OnChanges {
 
   }
 
-
-  private get numberOfFullStars(): number {
-
-    return Math.floor(this.rating);
-
-  }
-
-
-  private get numberOfEmptyStars(): number {
-
-    return this.MAX_NUMBER_OF_STARS - Math.ceil(this.rating);
-
-  }
-
-
-  get fullStars(): any[] {
-
-    return Array(this.numberOfFullStars);
-
-  }
-
-
-  get emptyStars(): any[] {
-
-    return Array(this.numberOfEmptyStars);
-
-  }
-
-
-  get hasAnHalfStar(): boolean {
-
-    return this.rating % 1 !== 0;
-
-  }
-
-  addRating() {
-    this.router.navigateByUrl('/addRating', {state: {film : this.film}});
+  checkFilm() {
+    this.router.navigateByUrl('/checkFilm', {state: {film : this.film, rate: this.rating}});
   }
 
 

@@ -1,0 +1,44 @@
+.signup-container {
+  max-width: 450px;
+  margin: 40px auto 0;
+  padding-top: 20px;
+  border: 1px solid #e1e0e0;
+  background-color: #fff;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+
+.logo-container {
+  margin-bottom: 50px;
+}
+
+.signup-container img {
+  width: 200px;
+}
+
+.signup-form-button {
+  width: 100%;
+}
+
+.signup-form-margin {
+  margin-bottom: 16px;
+}
+
+
+.login-link-container {
+  display: flex;
+  justify-content: center;
+  max-width: 450px;
+  margin: 10px auto 0;
+  padding: 20px;
+  border: 1px solid #e1e0e0;
+  background-color: #fff;
+  color: #999;
+}
+
+.login-link-container a {
+  margin-left: 5px;
+  font-weight: bold;
+  color: #003569;
+}

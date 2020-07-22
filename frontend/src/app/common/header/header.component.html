@@ -1,0 +1,54 @@
+<div style="margin-left: 17%; margin-right: 17%;">
+  <div nz-row>
+    <div nz-col nzSpan="8" nzPull="2">
+      <div class="app-logo-container">
+        <a routerLink="/">
+          <span>𝓐𝓵𝓵 𝓪𝓫𝓸𝓾𝓽 𝓜𝓸𝓿𝓲𝓮𝓼!</span>
+        </a>
+      </div>
+    </div>
+    <div nz-col nzSpan="8">
+      <nz-input-group [nzSuffix]="suffixIconSearch">
+        <input type="text" nz-input placeholder="input search text"/>
+      </nz-input-group>
+      <ng-template #suffixIconSearch>
+        <i nz-icon nzType="search"></i>
+      </ng-template>
+    </div>
+
+    <div nz-col nzSpan="8" nzPush="4">
+
+      <ul nz-menu nzMode="horizontal" nzSelectable="false" class="app-menu">
+
+        <li nz-menu-item title="Films">
+          <a routerLink="films">
+            <i nz-icon nzType="database" nzTheme="outline"></i>
+          </a>
+        </li>
+        <li nz-menu-item title="Find friends">
+          <a routerLink="films">
+            <i nz-icon nzType="compass" nzTheme="outline"></i>
+          </a>
+        </li>
+
+        <li nz-menu-item title="User">
+          <a routerLink="films">
+            <i nz-icon nzType="user" nzTheme="outline"></i>
+          </a>
+        </li>
+
+
+        <li (click)="logout()"  nz-menu-item title="Logout">
+
+          <i nz-icon nzType="logout" nzTheme="outline"></i>
+
+        </li>
+
+      </ul>
+    </div>
+
+  </div>
+
+</div>
+
+

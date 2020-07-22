@@ -10,24 +10,41 @@ import {FilmService} from './films/film.service';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {RouterModule, Routes} from '@angular/router';
 import {OAuthModule} from 'angular-oauth2-oidc';
-import {AuthInterceptor} from './auth.interceptor';
+import {AuthInterceptor} from './auth/auth.interceptor';
 import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatExpansionModule} from '@angular/material/expansion';
-import { AddRatingComponent } from './add-rating/add-rating.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {RatingModule} from 'ng-starrating';
+import { HeaderComponent } from './common/header/header.component';
+import {
+  NzAffixModule, NzAvatarModule, NzButtonModule, NzCommentModule, NzDescriptionsModule,
+  NzFormModule,
+  NzGridModule,
+  NzIconModule,
+  NzInputModule,
+  NzLayoutModule, NzListModule,
+  NzMenuModule, NzRateModule,
+  NzRowDirective, NzTypographyModule
+} from 'ng-zorro-antd';
+import {AuthService} from './auth/auth.service';
+import {AuthGuard} from './auth/app.guard';
+import { LoginComponent } from './auth/login/login.component';
+import { SignupComponent } from './auth/signup/signup.component';
+import { FilmViewComponent } from './films/film-view/film-view.component';
+
 
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent },
-  {path: 'films', component: FilmsComponent},
-  {path: 'addRating', component: AddRatingComponent}
+  {path: 'signup', component: SignupComponent},
+  {path: 'films', canActivate: [AuthGuard], component: FilmsComponent},
+  {path: 'checkFilm', canActivate: [AuthGuard], component: FilmViewComponent}
 ];
 
 @NgModule({
@@ -38,10 +55,14 @@ const appRoutes: Routes = [
     FilmDetailComponent,
     FilmItemComponent,
     HomeComponent,
-    AddRatingComponent
+    HeaderComponent,
+    LoginComponent,
+    SignupComponent,
+    FilmViewComponent
 
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
@@ -55,13 +76,28 @@ const appRoutes: Routes = [
     MatInputModule,
     MatButtonModule,
     ReactiveFormsModule,
-    RatingModule
+    RatingModule,
+    NzGridModule,
+    NzInputModule,
+    NzIconModule,
+    NzMenuModule,
+    NzLayoutModule,
+    NzAffixModule,
+    NzFormModule,
+    NzButtonModule,
+    NzRateModule,
+    NzAvatarModule,
+    NzTypographyModule,
+    NzListModule,
+    NzCommentModule,
+    NzDescriptionsModule,
+    NzInputModule
   ],
   providers: [FilmService ,     {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true
-  }],
+  }, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
