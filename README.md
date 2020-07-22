@@ -4,8 +4,14 @@
 
 ## App
 
-![Image1](pictures/films.PNG)
+![Image1](pictures/login.PNG)
 
-![Image2](pictures/films2.PNG)
+![Image2](pictures/signup.PNG)
 
-![Image3](pictures/addRating.PNG)
+![Image3](pictures/films1.PNG)
+
+![Image4](pictures/films2.PNG)
+
+![Image5](pictures/view.PNG)
+
+![Image6](pictures/view2.PNG)
