@@ -9,6 +9,9 @@ Additional, you have to set your own path to the `config-repo` folder (in the ap
 spring.cloud.config.server.git.uri=file:///${user.home}/config-repo
 ```
 
+## Data
+You can use command from `init.data` file in order to initialize mongo database.
+
 ## App
 
 ![Image1](pictures/login.PNG)
