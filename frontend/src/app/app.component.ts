@@ -33,7 +33,11 @@ export class AppComponent implements OnInit{
 
     if(this.oauthService.hasValidAccessToken() && this.oauthService.hasValidIdToken() || localStorage.getItem('jwt_access_token')) {
       // this.show = true;
-      this.authService.isAuthenticated.next(true);
+      this.authService.getCurrentUser().subscribe(user => {
+        console.log(user);
+        this.authService.isAuthenticated.next(true);
+      });
+
     }
 
 

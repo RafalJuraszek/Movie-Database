@@ -30,13 +30,16 @@ import {
   NzInputModule,
   NzLayoutModule, NzListModule,
   NzMenuModule, NzRateModule,
-  NzRowDirective, NzTypographyModule
+  NzRowDirective, NzTabsModule, NzTypographyModule
 } from 'ng-zorro-antd';
 import {AuthService} from './auth/auth.service';
 import {AuthGuard} from './auth/app.guard';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { FilmViewComponent } from './films/film-view/film-view.component';
+import { ProfileComponent } from './user/profile/profile.component';
+import { RatingsComponent } from './user/ratings/ratings.component';
+import {RatingService} from './user/ratings/rating.service';
 
 
 
@@ -44,7 +47,8 @@ const appRoutes: Routes = [
   {path: '', component: HomeComponent },
   {path: 'signup', component: SignupComponent},
   {path: 'films', canActivate: [AuthGuard], component: FilmsComponent},
-  {path: 'checkFilm', canActivate: [AuthGuard], component: FilmViewComponent}
+  {path: 'checkFilm', canActivate: [AuthGuard], component: FilmViewComponent},
+  {path: 'profile', canActivate: [AuthGuard], component: ProfileComponent}
 ];
 
 @NgModule({
@@ -58,7 +62,9 @@ const appRoutes: Routes = [
     HeaderComponent,
     LoginComponent,
     SignupComponent,
-    FilmViewComponent
+    FilmViewComponent,
+    ProfileComponent,
+    RatingsComponent
 
   ],
   imports: [
@@ -91,13 +97,14 @@ const appRoutes: Routes = [
     NzListModule,
     NzCommentModule,
     NzDescriptionsModule,
-    NzInputModule
+    NzInputModule,
+    NzTabsModule
   ],
   providers: [FilmService ,     {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true
-  }, AuthService, AuthGuard],
+  }, AuthService, AuthGuard, RatingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

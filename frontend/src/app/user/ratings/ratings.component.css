@@ -1,0 +1,39 @@
+.rating-list {
+  margin-bottom: 30px;
+  border: 1px solid #e1e0e0;
+  /*background-color: #fff;*/
+  position: relative;
+
+}
+
+.bottom-description {
+  position: absolute;
+  bottom: 5px;
+
+}
+.user-rating-container {
+  background-color: white;
+  width: 100%;
+  border-top: 1px solid #e1e0e0;
+  padding: 15px;
+}
+
+.user-rating-star ::ng-deep .ant-rate-star {
+  font-size: 30px;
+}
+
+.star {
+  margin-top: 10px;
+  font-size: 30px;
+  color: gold;
+}
+
+.comment {
+  width: 100%;
+  background-color: #fafafa;
+  border: 1px solid #e1e0e0;
+  padding: 5px;
+  margin-top: 10px;
+}
+
+

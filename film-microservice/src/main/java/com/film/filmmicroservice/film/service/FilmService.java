@@ -26,4 +26,8 @@ public class FilmService {
     public Film createFilm(Film film) {
         return filmRepository.save(film);
     }
+
+    public List<Film> findByIdIn(List<String> ids) {
+        return filmRepository.findByIdIn(ids);
+    }
 }

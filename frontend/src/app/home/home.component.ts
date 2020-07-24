@@ -13,6 +13,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class HomeComponent implements OnInit {
   isAuthenticated = false;
+  currentUser;
 
 
   constructor(private authService: AuthService) {
@@ -23,6 +24,9 @@ export class HomeComponent implements OnInit {
     this.authService.isAuthenticated.subscribe( (isAuthenticated) => {
       this.isAuthenticated = isAuthenticated;
     });
+    this.authService.currentUser.subscribe(user => {
+      this.currentUser = user;
+    })
   }
 
 

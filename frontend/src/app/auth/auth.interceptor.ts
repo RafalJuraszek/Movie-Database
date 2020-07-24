@@ -18,7 +18,7 @@ export class AuthInterceptor implements HttpInterceptor {
     const idToken = this.oauthService.getIdToken();
     const jwtAccessToken = localStorage.getItem('jwt_access_token');
 
-    if ( (idToken || jwtAccessToken) && (request.url.includes('/film-service') || request.url.includes('/rating-service'))) {
+    if ( (idToken || jwtAccessToken) && request.url.includes('/api')) {
       request = request.clone({
         setHeaders: {
           Authorization: 'Bearer ' + (idToken ? idToken : jwtAccessToken)
