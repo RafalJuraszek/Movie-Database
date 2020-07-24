@@ -18,6 +18,7 @@ export class FilmViewComponent implements OnInit {
   value = 0;
   tooltips = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
   rate;
+  blockedRate = false;
 
   data = [
     {
@@ -46,6 +47,7 @@ export class FilmViewComponent implements OnInit {
   ngOnInit(): void {
     this.filmService.getRatingByFilmIdAndUsername(this.film.id).subscribe(rating => {
       this.value = rating.stars;
+      this.blockedRate = true;
       this.description = rating.description;
       this.show = false;
       }
@@ -56,6 +58,7 @@ export class FilmViewComponent implements OnInit {
     this.filmService.addRating(new RatingRequest(this.film.id, this.value, this.description)).subscribe( res => {
       console.log(res);
       this.show = false;
+      this.blockedRate = true;
       }
     );
   }

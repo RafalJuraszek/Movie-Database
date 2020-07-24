@@ -32,15 +32,15 @@
 
       <div nz-col nzSpan="10" nzPull="2">
         <h3 nz-typography>{{rating_film.film.title}}</h3>
-        <span nz-typography><strong>2019</strong></span>
+        <span nz-typography><strong>{{rating_film.film.year}}</strong></span>
 
         <div class="bottom-description">
           <i nz-icon nzType="star" class="star" nzTheme="fill"></i>
           <span style="margin-left: 5px; font-size:30px;" nz-typography><strong>{{4.7 | number:'1.0-1'}}</strong></span>
 
           <nz-descriptions [nzColumn]="2">
-            <nz-descriptions-item nzTitle="Direction">James Komasa</nz-descriptions-item>
-            <nz-descriptions-item nzTitle="Type">Comedy</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="Direction">{{rating_film.film.direction}}</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="Type">{{rating_film.film.type}}</nz-descriptions-item>
 
 
           </nz-descriptions>

@@ -16,4 +16,12 @@ public class Film {
     private String description;
 
     private String imageUrl;
+
+    private String direction;
+
+    private String type;
+
+    private String production;
+
+    private int year;
 }

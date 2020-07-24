@@ -6,7 +6,7 @@
         <div nz-col>
           <h1 style="color: goldenrod; margin-bottom: 5px!important;" nz-typography>{{film.title}}</h1>
           <div style="font-size: 15px;">
-            <span nz-typography><strong>2019</strong></span>
+            <span nz-typography><strong>{{film.year}}</strong></span>
             <span style="margin-left: 10px;" nz-typography><strong>1h 55min</strong></span>
           </div>
 
@@ -27,9 +27,9 @@
           <p>{{film.description}}</p>
 
           <nz-descriptions [nzColumn]="1">
-            <nz-descriptions-item nzTitle="Direction">James Komasa</nz-descriptions-item>
-            <nz-descriptions-item nzTitle="Type">Comedy</nz-descriptions-item>
-            <nz-descriptions-item nzTitle="Production">Polska</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="Direction">{{film.direction}}</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="Type">{{film.type}}</nz-descriptions-item>
+            <nz-descriptions-item nzTitle="Production">{{film.production}}</nz-descriptions-item>
 
           </nz-descriptions>
         </div>
@@ -46,7 +46,7 @@
       >
      {{ value ? tooltips[value - 1] : 'I saw, my rating' }}
       </span>
-      <nz-rate class="rate" [(ngModel)]="value"></nz-rate>
+      <nz-rate class="rate" [disabled]="blockedRate" [(ngModel)]="value"></nz-rate>
 
       <nz-comment *ngIf="value && show" style="width: 70%;">
         <nz-comment-content>

@@ -25,3 +25,5 @@ You can use command from `init.data` file in order to initialize mongo database.
 ![Image5](pictures/view.PNG)
 
 ![Image6](pictures/view2.PNG)
+
+![Image7](pictures/profile.PNG)

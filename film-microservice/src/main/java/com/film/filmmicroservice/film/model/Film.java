@@ -26,4 +26,16 @@ public class Film {
     @NonNull
     @Field("imageUrl")
     private String imageUrl;
+
+    @NonNull
+    private String direction;
+
+    @NonNull
+    private String type;
+
+    @NonNull
+    private String production;
+
+    @NonNull
+    private int year;
 }
