@@ -3,6 +3,7 @@ package com.rafaljuraszek.movie.authservice.service;
 import com.rafaljuraszek.movie.authservice.exception.EmailAlreadyExistsException;
 import com.rafaljuraszek.movie.authservice.exception.ResourceNotFoundException;
 import com.rafaljuraszek.movie.authservice.exception.UsernameAlreadyExistsException;
+import com.rafaljuraszek.movie.authservice.model.Profile;
 import com.rafaljuraszek.movie.authservice.model.Role;
 import com.rafaljuraszek.movie.authservice.model.User;
 import com.rafaljuraszek.movie.authservice.repository.UserRepository;
@@ -70,16 +71,16 @@ public class UserService {
     }
 
     @Transactional
-    public User createAndGetUser(String email, String username) {
+    public User createAndGetUser(String email, String username, String name) {
         Optional<User> user = userRepository.findByEmail(email);
 
         if(user.isPresent()) {
             return user.get();
         }
         else {
-            User newUser = User.builder().email(email).username(username).roles(new HashSet<Role>() {{
+            User newUser = User.builder().email(email).username(username).userProfile(Profile.builder().displayName(name).build()).roles(new HashSet<Role>() {{
                 add(Role.USER);
-            }}).password("ala").build();
+            }}).active(true).build();
             userRepository.save(newUser);
             return newUser;
         }

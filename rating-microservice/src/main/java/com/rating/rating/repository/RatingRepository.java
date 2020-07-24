@@ -9,4 +9,5 @@ import java.util.Optional;
 public interface RatingRepository extends MongoRepository<Rating, String> {
     List<Rating> findRatingsByFilmId(String filmId);
     Optional<Rating> findByFilmIdAndUsername(String filmId, String username);
+    List<Rating> findRatingsByUsername(String username);
 }

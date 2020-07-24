@@ -124,8 +124,8 @@ public class UserController {
 
         if(userDetails==null) {
             System.out.println(jwt.getClaims());
-            User user = userService.createAndGetUser(jwt.getClaim("email"), jwt.getClaim("name"));
-            return UserInfo.builder().id(user.getId()).username(user.getUsername()).build();
+            User user = userService.createAndGetUser(jwt.getClaim("email"), jwt.getClaim("given_name"), jwt.getClaim("name"));
+            return UserInfo.builder().id(user.getId()).username(user.getUsername()).name(user.getUserProfile().getDisplayName()).build();
         }
         else {
             return UserInfo

@@ -2,6 +2,7 @@ import {EventEmitter, Injectable} from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import {RatingModel} from './rating.model';
 import {RatingRequest} from '../payload/rating-request.payload';
+import {AuthService} from '../auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,11 +10,18 @@ import {RatingRequest} from '../payload/rating-request.payload';
 export class FilmService {
 
   BASIC_FILM_URL: string = 'http://localhost:4200/api/film-service/';
-  BASIC_RATING_URL: string = 'http://localhost:4200/api/rating-service/';
+  BASIC_RATING_URL: string = 'http://localhost:4200/api/rating-service/ratings/';
   filmSelected = new EventEmitter();
   showHeader = new EventEmitter();
+  username;
 
-  constructor(private httpService: HttpClient) {
+  constructor(private httpService: HttpClient, private authService: AuthService) {
+    this.authService.currentUser.subscribe(user => {
+      if (user !== null) {
+        this.username = user.username;
+      }
+
+    });
   }
 
   getFilms() {
@@ -27,7 +35,7 @@ export class FilmService {
 
   getRatingByFilmIdAndUsername(filmId) {
     const params = new HttpParams().set('id', filmId);
-    return this.httpService.get<RatingModel>(this.BASIC_RATING_URL + 'rating', {params});
+    return this.httpService.get<RatingModel>(this.BASIC_RATING_URL + this.username, {params});
   }
 
   addRating(ratingRequest) {
