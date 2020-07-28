@@ -1,9 +1,10 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {Config} from '../../common/constants';
 
 @Injectable()
 export class RatingService {
-  BASIC_URL: string = 'http://localhost:4200/api/';
+  BASIC_URL: string = Config.BASIC_URL;
 
   constructor(private httpService: HttpClient) {
   }

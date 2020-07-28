@@ -39,7 +39,7 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { FilmViewComponent } from './films/film-view/film-view.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { RatingsComponent } from './user/ratings/ratings.component';
-import {RatingService} from './user/ratings/rating.service';
+import {RatingService} from './user/services/rating.service';
 
 
 

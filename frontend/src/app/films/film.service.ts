@@ -3,14 +3,15 @@ import {HttpClient, HttpParams} from '@angular/common/http';
 import {RatingModel} from './rating.model';
 import {RatingRequest} from '../payload/rating-request.payload';
 import {AuthService} from '../auth/auth.service';
+import {Config} from '../common/constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FilmService {
 
-  BASIC_FILM_URL: string = 'http://localhost:4200/api/film-service/';
-  BASIC_RATING_URL: string = 'http://localhost:4200/api/rating-service/ratings/';
+  BASIC_FILM_URL: string = Config.BASIC_URL + 'film-service/films';
+  BASIC_RATING_URL: string = Config.BASIC_URL + 'rating-service/ratings/';
   filmSelected = new EventEmitter();
   showHeader = new EventEmitter();
   username;
@@ -25,7 +26,7 @@ export class FilmService {
   }
 
   getFilms() {
-    return this.httpService.get(this.BASIC_FILM_URL + 'films');
+    return this.httpService.get(this.BASIC_FILM_URL);
   }
 
   getRatingsByFilmId(filmId) {
