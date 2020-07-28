@@ -23,7 +23,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {RatingModule} from 'ng-starrating';
 import { HeaderComponent } from './common/header/header.component';
 import {
-  NzAffixModule, NzAvatarModule, NzButtonModule, NzCommentModule, NzDescriptionsModule,
+  NzAffixModule, NzAvatarModule, NzButtonModule, NzCardModule, NzCommentModule, NzDescriptionsModule,
   NzFormModule,
   NzGridModule,
   NzIconModule,
@@ -40,6 +40,8 @@ import { FilmViewComponent } from './films/film-view/film-view.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { RatingsComponent } from './user/ratings/ratings.component';
 import {RatingService} from './user/services/rating.service';
+import { DiscoverComponent } from './user/discover/discover.component';
+import {UserService} from './user/services/user.service';
 
 
 
@@ -48,7 +50,8 @@ const appRoutes: Routes = [
   {path: 'signup', component: SignupComponent},
   {path: 'films', canActivate: [AuthGuard], component: FilmsComponent},
   {path: 'checkFilm', canActivate: [AuthGuard], component: FilmViewComponent},
-  {path: 'profile', canActivate: [AuthGuard], component: ProfileComponent}
+  {path: 'profile', canActivate: [AuthGuard], component: ProfileComponent},
+  {path: 'discover', canActivate: [AuthGuard], component: DiscoverComponent}
 ];
 
 @NgModule({
@@ -64,7 +67,8 @@ const appRoutes: Routes = [
     SignupComponent,
     FilmViewComponent,
     ProfileComponent,
-    RatingsComponent
+    RatingsComponent,
+    DiscoverComponent
 
   ],
   imports: [
@@ -98,13 +102,14 @@ const appRoutes: Routes = [
     NzCommentModule,
     NzDescriptionsModule,
     NzInputModule,
-    NzTabsModule
+    NzTabsModule,
+    NzCardModule
   ],
   providers: [FilmService ,     {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true
-  }, AuthService, AuthGuard, RatingService],
+  }, AuthService, AuthGuard, RatingService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,23 @@
+<div class="discover-container">
+  <div class="title">
+    <h3>Discover people</h3>
+  </div>
+
+  <div class="grid-style">
+    <nz-card *ngFor="let user of filteredUsers" [nzHoverable]="true" style="margin: 15px; width: 230px;"
+             [nzActions]="[action]">
+
+      <div class="avatar-container">
+        <nz-avatar nzIcon="user" class="avatar"
+                   nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
+      </div>
+      <nz-card-meta [nzTitle]="user.userProfile.displayName" [nzDescription]="user.username"
+                    class="card-meta"></nz-card-meta>
+    </nz-card>
+
+    <ng-template #action>
+      <button nz-button class="follow-button" [nzType]="'primary'">Follow
+      </button>
+    </ng-template>
+  </div>
+</div>
