@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {RatingService} from './rating.service';
+import {RatingService} from '../services/rating.service';
 
 interface ItemData {
   href: string;
@@ -15,17 +15,14 @@ interface ItemData {
   styleUrls: ['./ratings.component.css']
 })
 export class RatingsComponent implements OnInit {
-  @Input('username') username;
+  @Input('ratingsFilms') ratingsFilms;
   data: ItemData[] = [];
   value = 5;
-  ratingsFilms;
 
-  constructor(private ratingService: RatingService) {
+
+  constructor() {
   }
   ngOnInit(): void {
-    this.ratingService.findUserRatings(this.username).subscribe(result => {
-      this.ratingsFilms = result;
-    });
   }
 
 }

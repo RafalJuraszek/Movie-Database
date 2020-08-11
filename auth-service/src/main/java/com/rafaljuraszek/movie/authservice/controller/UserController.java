@@ -162,6 +162,21 @@ public class UserController {
         return ResponseEntity.ok(summaries);
 
     }
+	
+	
+	@GetMapping(value = "/users/summary", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> getUsers() {
+
+        List<UserInfo> summaries =
+                userService
+                        .findAll()
+                        .stream()
+                        .map(user -> convertTo(user))
+                        .collect(Collectors.toList());
+
+        return ResponseEntity.ok(summaries);
+
+    }
 
     private UserInfo convertTo(User user) {
         return UserInfo

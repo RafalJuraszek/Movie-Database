@@ -1,0 +1,46 @@
+.discover-container {
+  max-width: 1000px;
+  margin: 40px auto 0;
+}
+
+.title {
+  padding: 20px 0;
+}
+
+.title h3 {
+  color: #999;
+}
+
+.grid-config {
+  height: 120px;
+  font-size: 14px;
+  line-height: 120px;
+  background: #0092ff;
+  border-radius: 4px;
+}
+
+
+.grid-style {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.avatar-container {
+  justify-content: center;
+  display: flex;
+  padding: 10px;
+}
+
+.avatar {
+  width: 140px;
+  height: 140px;
+}
+
+.follow-button {
+  font-size: 15px;
+}
+
+.card-meta {
+
+  text-align: center;
+}

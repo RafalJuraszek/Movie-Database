@@ -23,7 +23,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {RatingModule} from 'ng-starrating';
 import { HeaderComponent } from './common/header/header.component';
 import {
-  NzAffixModule, NzAvatarModule, NzButtonModule, NzCommentModule, NzDescriptionsModule,
+  NzAffixModule, NzAvatarModule, NzButtonModule, NzCardModule, NzCommentModule, NzDescriptionsModule,
   NzFormModule,
   NzGridModule,
   NzIconModule,
@@ -39,7 +39,10 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { FilmViewComponent } from './films/film-view/film-view.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { RatingsComponent } from './user/ratings/ratings.component';
-import {RatingService} from './user/ratings/rating.service';
+import {RatingService} from './user/services/rating.service';
+import { DiscoverComponent } from './user/discover/discover.component';
+import {UserService} from './user/services/user.service';
+import { OtherProfileComponent } from './user/other-profile/other-profile.component';
 
 
 
@@ -48,7 +51,9 @@ const appRoutes: Routes = [
   {path: 'signup', component: SignupComponent},
   {path: 'films', canActivate: [AuthGuard], component: FilmsComponent},
   {path: 'checkFilm', canActivate: [AuthGuard], component: FilmViewComponent},
-  {path: 'profile', canActivate: [AuthGuard], component: ProfileComponent}
+  {path: 'users/me', canActivate: [AuthGuard], component: ProfileComponent},
+  {path: 'users/:username', canActivate: [AuthGuard], component: OtherProfileComponent},
+  {path: 'discover', canActivate: [AuthGuard], component: DiscoverComponent}
 ];
 
 @NgModule({
@@ -64,7 +69,9 @@ const appRoutes: Routes = [
     SignupComponent,
     FilmViewComponent,
     ProfileComponent,
-    RatingsComponent
+    RatingsComponent,
+    DiscoverComponent,
+    OtherProfileComponent
 
   ],
   imports: [
@@ -98,13 +105,14 @@ const appRoutes: Routes = [
     NzCommentModule,
     NzDescriptionsModule,
     NzInputModule,
-    NzTabsModule
+    NzTabsModule,
+    NzCardModule
   ],
   providers: [FilmService ,     {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true
-  }, AuthService, AuthGuard, RatingService],
+  }, AuthService, AuthGuard, RatingService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

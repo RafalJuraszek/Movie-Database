@@ -55,8 +55,6 @@ public class RatingService {
         }).collect(Collectors.toList());
 
 
-
-
     }
 
 

@@ -1,0 +1,58 @@
+.profile-container {
+  max-width: 1000px;
+  margin: 0 auto 0;
+
+  padding: 40px;
+  border: 1px solid #e1e0e0;
+}
+
+
+
+.user-info {
+  display: flex;
+
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.user-avatar-circle {
+  width: 150px;
+  height: 150px;
+  cursor: pointer;
+  background-color: #fafafa;
+
+}
+
+.name {
+  margin-top:10px;
+  font-size: 28px;
+  line-height: 32px;
+  font-weight: 500;
+}
+
+.username {
+  font-size: 20px;
+  line-height: 25px;
+  font-weight: 400;
+}
+
+.edit-profile {
+  font-weight: 700;
+  color: #000;
+}
+
+
+.setting {
+  margin-left: 5px;
+  font-size: 26px;
+  line-height: 37px;
+  cursor: pointer;
+}
+
+.follow-button {
+  font-weight: 700;
+}
+
+
+
