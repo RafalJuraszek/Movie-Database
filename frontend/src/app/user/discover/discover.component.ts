@@ -5,6 +5,7 @@ import {UserPayload} from '../../payload/user.payload';
 import {FollowRequestPayload} from '../../payload/follow-request.payload';
 import {RelationshipService} from '../services/relationship.service';
 import {UserModel} from '../model/user.model';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-discover',
@@ -16,7 +17,7 @@ export class DiscoverComponent implements OnInit {
   users: UserModel[];
   currentUser: UserModel;
 
-  constructor(private authService: AuthService, private userService: UserService, private relationshipService: RelationshipService) {
+  constructor(private authService: AuthService, private userService: UserService, private relationshipService: RelationshipService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -45,6 +46,9 @@ export class DiscoverComponent implements OnInit {
       this.users.splice(index, 1);
     });
 
+  }
+  userPicked(pickedUser) {
+    this.router.navigateByUrl('/users/' + pickedUser.username);
   }
 
 

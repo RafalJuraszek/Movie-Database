@@ -15,4 +15,7 @@ export class UserService {
     return this.httpService.get<[UserModel]>(this.BASIC_URL + 'auth/users/summary');
 
   }
+  getUserInfo(username): Observable<UserModel> {
+    return this.httpService.get<UserModel>(this.BASIC_URL + 'auth/users/summary/' + username);
+  }
 }

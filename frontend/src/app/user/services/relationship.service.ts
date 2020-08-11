@@ -25,6 +25,9 @@ export class RelationshipService {
   findFollowing(username): Observable<any> {
     return this.httpService.get<any>(this.API_URL + 'users/' + username + '/following');
   }
+  isFollowing(usernameA, usernameB): Observable<boolean> {
+    return this.httpService.get<boolean>(this.API_URL + 'users/' + usernameA + '/following' + usernameB);
+  }
 
 
 }

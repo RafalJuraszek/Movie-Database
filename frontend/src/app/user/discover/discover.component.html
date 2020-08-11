@@ -8,9 +8,9 @@
       <nz-card [nzHoverable]="true" style="margin: 15px; width: 230px;"
                [nzActions]="[action]">
 
-        <div class="avatar-container">
+        <div class="avatar-container" (click)="userPicked(user)">
           <nz-avatar nzIcon="user" class="avatar"
-                     nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
+                     nzSrc="assets/img/most.jpeg"></nz-avatar>
         </div>
         <nz-card-meta [nzTitle]="user.name" [nzDescription]="user.username"
                       class="card-meta"></nz-card-meta>

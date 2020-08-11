@@ -1,9 +1,4 @@
 <div class="profile-container">
-
-  <div nz-row nzJustify="end">
-    <button nz-button class="edit-profile">Edit Profile</button>
-    <i nz-icon nzType="setting" class="setting"></i>
-  </div>
   <div nz-row>
     <div nz-col nzSpan="24">
 
@@ -14,6 +9,8 @@
         <h1 class="name">
           {{currentUser.name}}
         </h1>
+
+
 
         <h2 class="username">
           {{currentUser.username}}
@@ -40,6 +37,10 @@
 
   </div>
 
+  <div nz-row nzJustify="center" style="margin-top: 10px;">
+    <button nz-button class="follow-button" (click)="follow()" [nzType]="isFollowing ? 'secondary' : 'primary'" nzSize="large">{{ isFollowing ? 'Following' : 'Follow'}}
+    </button>
+  </div>
 
   <div nz-row style="margin-top: 10px;">
     <div nz-col nzSpan="24">
@@ -67,6 +68,7 @@
 
 
 </div>
+
 
 
 

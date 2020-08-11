@@ -42,6 +42,7 @@ import { RatingsComponent } from './user/ratings/ratings.component';
 import {RatingService} from './user/services/rating.service';
 import { DiscoverComponent } from './user/discover/discover.component';
 import {UserService} from './user/services/user.service';
+import { OtherProfileComponent } from './user/other-profile/other-profile.component';
 
 
 
@@ -50,7 +51,8 @@ const appRoutes: Routes = [
   {path: 'signup', component: SignupComponent},
   {path: 'films', canActivate: [AuthGuard], component: FilmsComponent},
   {path: 'checkFilm', canActivate: [AuthGuard], component: FilmViewComponent},
-  {path: 'profile', canActivate: [AuthGuard], component: ProfileComponent},
+  {path: 'users/me', canActivate: [AuthGuard], component: ProfileComponent},
+  {path: 'users/:username', canActivate: [AuthGuard], component: OtherProfileComponent},
   {path: 'discover', canActivate: [AuthGuard], component: DiscoverComponent}
 ];
 
@@ -68,7 +70,8 @@ const appRoutes: Routes = [
     FilmViewComponent,
     ProfileComponent,
     RatingsComponent,
-    DiscoverComponent
+    DiscoverComponent,
+    OtherProfileComponent
 
   ],
   imports: [
